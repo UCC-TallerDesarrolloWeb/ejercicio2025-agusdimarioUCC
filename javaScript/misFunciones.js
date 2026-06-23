@@ -30,10 +30,14 @@ let convertirUnidades = (unidad, valor) => {
       yarda = 0.3333 * pie;
     } else if (unidad == "unid_pulgada") {
       pulgada = valor;
-      //tarea
+      metro = pulgada * 0.0254;
+      pie = pulgada / 12;
+      yarda = pulgada / 36;
     } else {
       yarda = valor;
-      //tarea
+      metro = yarda * 0.9144;
+      pie = yarda * 3;
+      pulgada = yarda * 36;
     }
   }
 
@@ -81,5 +85,40 @@ let sumar = () => {
     alert("Una de las variables ingresadas no es numérica");
   } else {
     document.getElementById("totalS").value = Number(sum1) + Number(sum2);
+  }
+};
+
+let restar = () => {
+  let num1 = document.getElementById("numr1").value;
+  let num2 = document.getElementById("numr2").value;
+
+  if (isNaN(num1) || isNaN(num2)) {
+    alert("Una de las variables ingresadas no es numérica");
+  } else {
+    document.getElementById("totalR").value = Number(num1) - Number(num2);
+  }
+};
+
+let multiplicar = () => {
+  let num1 = document.getElementById("numm1").value;
+  let num2 = document.getElementById("numm2").value;
+
+  if (isNaN(num1) || isNaN(num2)) {
+    alert("Una de las variables ingresadas no es numérica");
+  } else {
+    document.getElementById("totalM").value = Number(num1) * Number(num2);
+  }
+};
+
+let dividir = () => {
+  let num1 = document.getElementById("numd1").value;
+  let num2 = document.getElementById("numd2").value;
+
+  if (isNaN(num1) || isNaN(num2)) {
+    alert("Una de las variables ingresadas no es numérica");
+  } else if (Number(num2) === 0) {
+    alert("No se puede dividir por cero");
+  } else {
+    document.getElementById("totalD").value = Number(num1) / Number(num2);
   }
 };
